@@ -47,6 +47,7 @@ import { TimerService } from 'src/timer/timer.service';
       }),
     }),
     TypeOrmModule.forFeature([
+      //如果service层用到了实体，需要在这里注册
           User,
         ]),
     OtherModule,
