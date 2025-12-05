@@ -8,11 +8,10 @@ import { REQUEST } from '@nestjs/core';
 import { Public } from 'src/common/public.decorator';
 @Controller()
 export class AppController {
+  //直接通过依赖注入，不用自己new AppService()
   constructor(private readonly appService: AppService) {}
 
- 
 
- 
   @Get('/admin/firstTest')
   firstTest(@Request() req): string {
     //  console.log('query = ',req.query); // 

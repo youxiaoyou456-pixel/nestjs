@@ -15,6 +15,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
 
     // 你可以根据 exception 类型定制响应
+    
     const status =
       exception instanceof HttpException
         ? exception.getStatus()

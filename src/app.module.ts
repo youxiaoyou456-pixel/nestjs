@@ -61,7 +61,7 @@ import { TimerService } from 'src/timer/timer.service';
   providers: [
     // 基础服务
     AppService,
-      //认证相关
+      //认证相关 ，可以通过守卫来验证token。可以增加注解来指定哪些路由需要验证
     {
       provide: 'APP_GUARD',// 自定义 token
       useClass: jwtAuthGuard, // 全局守卫
