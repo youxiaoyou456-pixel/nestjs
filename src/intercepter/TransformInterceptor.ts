@@ -9,7 +9,7 @@ import { LoggerService } from 'src/logger/logger.service';
   
   @Injectable()
   export class TransformInterceptor implements NestInterceptor {
-      // constructor(private readonly logger: LoggerService) {} // 注入 LoggerService
+      constructor(private readonly logger: LoggerService) {} // 注入 LoggerService
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
       // 在请求到达 Service 之前执行的逻辑
         // const request = context.switchToHttp().getRequest<any>();

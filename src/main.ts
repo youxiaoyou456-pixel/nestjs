@@ -9,11 +9,11 @@ import { LoggerService } from 'src/logger/logger.service';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useGlobalFilters(new DatabaseErrorFilter())
- app.useGlobalFilters(new AllExceptionsFilter())
+  app.useGlobalFilters(new AllExceptionsFilter())
   app.useGlobalFilters(new HttpExceptionFilter())
-  app.useGlobalInterceptors(new TransformInterceptor())
-  // const loggerService = app.get(LoggerService);
-  // app.useGlobalInterceptors(new TransformInterceptor(LoggerService))
+   const loggerService = app.get(LoggerService);
+  // app.useGlobalInterceptors(new TransformInterceptor(loggerService))
+  app.useGlobalInterceptors(new TransformInterceptor(loggerService))
   //静态资源
   //app.useStaticAssets('public', { prefix: '/static' });
   await app.listen(process.env.PORT ?? 3000);
